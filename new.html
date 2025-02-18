@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Macro Converter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div style="display: flex; justify-content: center; margin-top: 5em;">
+        <div class="container" style="display: flex; flex-direction: column; width: 40em; gap: 0.5em;">
+            <div class="drag-container container" style="display: flex; justify-content: center; padding: 2.5em; font-size: 2rem" id="drag-area">
+                {{dragAreaMessage}}
+            </div>
+            <div class="fade-in" show-if="hasMacro" style="font-size: 1.05rem">
+                <div>File: <span class="mono-block">{{fileName}}</span></div>
+                <div show-if="guessFailed">Unable to guess macro type, please select it below</div>
+                <div show-if="!guessFailed">
+                    Guessed macro type: {{macroType}} <br>
+                    Is frame: {{macroFrame}} <br>
+                    FPS: {{macroFPS}}
+                </div>
+            </div>
+            <label class="fade-in">
+                Converting from <bot-select id="select-from" />
+            </label>
+            <label class="fade-in">
+                Converting to <bot-select id="select-to" />
+            </label>
+            <div show-if="hasMacro" class="fade-in">
+                <button id="convert-button">Convert</button>
+            </div>
+            <!-- Add this navigation div -->
+            <div class="nav-links fade-in" style="display: flex; justify-content: space-between; margin-top: 2em;">
+                <button onclick="window.location.href='index.html'">← Back to Home</button>
+                <button onclick="window.location.href='frame.html'">Go to Frame Editor</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/file-saver@2.0.5/dist/FileSaver.min.js"></script>
+    <script src="parser.js"></script>
+    <script src="new.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

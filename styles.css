@@ -1,0 +1,161 @@
+:root {
+  --primary-light: #ffffff;
+  --secondary-light: #f0f0f0;
+  --text-light: #2c3e50;
+  --accent-light: #3498db;
+  
+  --primary-dark: #1a1a1a;
+  --secondary-dark: #2d2d2d;
+  --text-dark: #ecf0f1;
+  --accent-dark: #3498db;
+  
+  --glass-background: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.18);
+}
+
+/* Theme switching */
+[data-theme="light"] {
+  --primary: var(--primary-light);
+  --secondary: var(--secondary-light);
+  --text: var(--text-light);
+  --accent: var(--accent-light);
+}
+
+[data-theme="dark"] {
+  --primary: var(--primary-dark);
+  --secondary: var(--secondary-dark);
+  --text: var(--text-dark);
+  --accent: var(--accent-dark);
+}
+
+body {
+  background: var(--primary);
+  color: var(--text);
+  transition: all 0.3s ease;
+}
+
+.container {
+  background: var(--glass-background);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px 0 rgba(31, 38, 135, 0.45);
+}
+
+button {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  border: 1px solid var(--glass-border);
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+}
+
+input, select, textarea {
+  background: var(--glass-background);
+  border: 1px solid var(--glass-border);
+  color: var(--text);
+  border-radius: 8px;
+  padding: 10px;
+  transition: all 0.3s ease;
+}
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+/* Dark mode toggle */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px;
+  border-radius: 50%;
+  background: var(--glass-background);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+/* Add these at the end of your styles.css file */
+.nav-links {
+    margin-top: 1em;
+}
+
+.nav-buttons button {
+    min-width: 150px;
+}
+
+.mono-block {
+    font-family: monospace;
+    background: var(--glass-background);
+    padding: 0.15em 0.3em;
+    border-radius: 4px;
+}
+/* Frame Editor specific styles */
+.input-group {
+    margin-bottom: 1em;
+}
+
+.tool-group {
+    display: flex;
+    gap: 1em;
+    margin-bottom: 1em;
+}
+
+.editor-section textarea {
+    width: 100%;
+    min-height: 200px;
+    margin: 1em 0;
+    background: var(--glass-background);
+    color: var(--text);
+    border: 1px solid var(--glass-border);
+    border-radius: 8px;
+    padding: 1em;
+}
+
+.checkbox-container {
+    display: block;
+    margin: 1em 0;
+}
+
+input[type="number"] {
+    width: 100px;
+}
+
+.tools-section {
+    padding: 1em;
+    margin-top: 1em;
+}
+
+.converter-section {
+    background: var(--glass-background);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+    padding: 1.5em;
+}
